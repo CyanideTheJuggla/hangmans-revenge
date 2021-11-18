@@ -6,8 +6,17 @@ const DictionaryAPI = {
 }
 
 var getWordList = function(category) {
-    var apiUrl = "https://api.datamuse.com/words?rel_trg=" + category;
+    var apiUrl = "https://api.datamuse.com/words?rel_trg=" + category + "&md=d";
 
-    fetch(apiUrl);
+    fetch(apiUrl).then(function(response) {
+        if (response.ok) {
+            response.json().then(function(data) {
+                console.log(data);
+                
+            });
+        } else {
+            alert('Something went wrong!');
+        }
+    });
 }
 
