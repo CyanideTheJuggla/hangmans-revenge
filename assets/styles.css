@@ -1,17 +1,71 @@
 :root {
-  --primary-color: rgb(185, 177, 223);
+  --background-color: rgb(185, 175, 225);
+  --primary-color: rgb(185, 75, 75);
+  --secondary-color: rgb(175, 225, 185);
+  --teritary-color: rgb(175, 225, 225);
+  --primary-hover: rgb(235, 135, 135);
+  --secondary-hover: rgb(225, 255, 235);
+  --teritary-hover: rgb(225, 255, 255);
+  --primary-active: rgb(125, 25, 25);
+  --secondary-active: rgb(125, 175, 135);
+  --teritary-active: rgb(125, 175, 175);
+  --disabled: rgb(155, 155, 155);
 }
 
 body {
-  background-color: var(--primary-color);
+  background-color: var(--background-color);
+}
+.startContainer {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(0 0 0 / 25%);
+  position: fixed;
+}
+.startButton {
+  width: 800px;
+  height: 400px;
+  background-color: rgb(0, 125, 0);
+  color: white;
+  font-size: 100px;
+  font-weight: 900;
+  letter-spacing: 20px;
+  border-radius: 100px;
+  position: fixed;
+  top: 20vh;
+  left: 20vw;
+  border: 20px solid rgb(0 0 0 / 25%);
+  z-index: 10000;
+  opacity: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 40px 40px 15px rgb(0 0 0 / 25%);
+  user-select: none;
+}
+.startButton:hover {
+  background-color: rgb(0, 140, 0);
+}
+.startButton:active {
+  background-color: rgb(0, 100, 0);
+}
+
+.gameWindow {
+  display: none;
+  opacity: 0;
 }
 
 .stickman_parts {
-  width: 170px;
-  height: 359px;
+  width: 0;
+  height: 0;
   position: absolute;
   top: calc(31vh - (359px / 2));
-  left: calc(27vw - (170px / 2));
+  left: calc(27.5vw - (170px / 2));
+}
+.hangmanPiece {
+  position: absolute;
+  top: 182px;
+  left: 385px;
+  z-index: 1000;
 }
 .buttonParent {
   position: absolute;
@@ -22,6 +76,44 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
 .buttonContainer button {
+  box-shadow: 3px 3px 5px rgb(0 0 0 / 75%);
   margin: 5px;
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  font-size: large;
+}
+.buttonContainer button:active {
+  box-shadow: 2px 2px 5px rgb(0 0 0 / 75%);
+  background-color: var(--primary-active) !important;
+  transition: background-color 0.05s ease-in-out;
+}
+.buttonContainer button:hover {
+  background-color: var(--primary-hover);
+  transition: background-color 0.05s ease-in-out;
+}
+.buttonContainer button:disabled {
+  box-shadow: 2px 2px 5px rgb(0 0 0 / 75%);
+  background-color: var(--disabled);
+  transition: background-color 10ms ease-in-out;
+}
+.wordContainer {
+  font-size: 5rem;
+  height: 60px;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  margin: 0 40% 0 0;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+.wordContainer span {
+  margin: 2px;
+  font-weight: bolder;
+  color: white;
 }
