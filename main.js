@@ -14,24 +14,43 @@ const stickman = {
     imgPoint: 0
 };
 
+const alpha = Array.from(Array(26)).map((e, i) => i + 65);
+const alphabet = alpha.map((x) => String.fromCharCode(x));
+
+const generateKeys = () =>{
+    
+    //<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ></button>
+    let row;
+    for (let i = 0; i < alphabet.length; i++) {
+        const element = alphabet[i].toUpperCase();;
+        const btn = document.createElement('button');
+        btn.setAttribute('data-letter', element);
+        btn.innerHTML = element;
+        btn.className = 'mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored';
+        btn.onclick = letterKey;
+        if(i == 0 || i == 9 || i == 18) {
+            row = document.createElement('div');
+            row.className = 'buttonContainer';
+            document.getElementsByClassName('buttonParent')[0].appendChild(row);
+        }
+        row.appendChild(btn);
+    }
+}
+
+const letterKey = (e) => {
+    console.log($(e.target).parent().attr('data-letter'));
+}
+
 const hangmanMove = () => {
     stickman.imgPoint++;
     if(stickman.imgPoint < stickman.imgSrc.length) {
-        $('.stickman_parts').css('background-image', `url("${stickman.imgSrc[stickman.imgPoint]}")`);
-        //bgx = Number.parseInt(bgx.substring(0, bgx.length - 2));
-        //$('.stickman_parts').css('background-position-x', (bgx + stickman.width) + 'px');
-        console.log($('.stickman_parts').css('background-image'));
+        $('.stickman_parts').attr('src', stickman.imgSrc[stickman.imgPoint]);
     } else {
-        console.log('END');
+        stickman.imgPoint = 0;
+        hangmanMove();
     }
 };
 
-
-$(document).ready(()=>{
-});
-
-console.log(GIPHY_API.pathURL);
-console.log(EvilInsultAPI.pathURL);
-console.log(DictionaryAPI.pathURL);
+$(document).ready(()=>{generateKeys()});
 
 console.log('main.js: OK!');

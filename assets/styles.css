@@ -7,11 +7,21 @@ body {
 }
 
 .stickman_parts {
-  background-image: url("./img/Stickman-part_6panel.png");
-  background-position-x: 0px;
   width: 170px;
   height: 359px;
   position: absolute;
-  top: calc(50vh - (359px / 2));
-  left: calc(50vw - (170px / 2));
+  top: calc(31vh - (359px / 2));
+  left: calc(27vw - (170px / 2));
+}
+.buttonParent {
+  position: absolute;
+  top: 70vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.buttonContainer button {
+  margin: 5px;
 }

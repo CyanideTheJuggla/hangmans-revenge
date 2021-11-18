@@ -4,3 +4,4 @@
 const GIPHY_API = {
     pathURL: 'https://api.giphy.com/v1/gifs/'
 }
+console.log(GIPHY_API.pathURL);

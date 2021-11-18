@@ -4,3 +4,5 @@
 const DictionaryAPI = {
     pathURL: "https://api.datamuse.com/"
 }
+
+console.log(DictionaryAPI.pathURL);

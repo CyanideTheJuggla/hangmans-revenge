@@ -7,10 +7,12 @@ const EvilInsultAPI = {
         fetch(EvilInsultAPI.pathURL)
             .then((response)=>{
                 console.log(response.json());
-                return response.json();
+                return response;
             })
             .then((data)=>{
                 console.log('data', data);
             });
     }
 }
+
+console.log(EvilInsultAPI.pathURL);
