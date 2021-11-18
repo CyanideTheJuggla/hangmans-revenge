@@ -2,16 +2,20 @@
 /* https://www.datamuse.com/api/        */
 
 const DictionaryAPI = {
-    pathURL: "https://api.datamuse.com/"
+    getRandomWord: getRandomWord
 }
 
-var getWordList = function(category) {
+var getRandomWord = function(category) {
     var apiUrl = "https://api.datamuse.com/words?rel_trg=" + category + "&md=d";
 
     fetch(apiUrl).then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                console.log(data);
+                var maxLength = data.length;
+                var randNum = Math.floor(Math.random() * maxLength);
+                var randWord(data(randNum));
+                console.log(data[randNum]);
+                return randWord;
                 
             });
         } else {

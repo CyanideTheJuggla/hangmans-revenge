@@ -1,6 +1,9 @@
 /* Using GIPHY API to get gif hints         */
 /* https://developers.giphy.com/docs/api/   */
 
+const GIPHY_API = {
+    getGif: getGif
+}
 
 // Fetches gifs related to the word parameter and displays the first one returned
 var getGif = function(word) {
