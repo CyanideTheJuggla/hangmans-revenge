@@ -15,18 +15,4 @@ const EvilInsultAPI = {
     }
 }
 
-var getInsult = function() {
-    var apiUrl = "https://evilinsult.com/generate_insult.php?lang=en&type=json";
-
-    fetch(apiUrl).then(function(response) {
-        if (response.ok) {
-            response.json().then(function(data) {
-                console.log(data);
-                
-            });
-        } else {
-            alert('Something went wrong!');
-        }
-    });
-}
 

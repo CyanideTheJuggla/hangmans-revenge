@@ -13,7 +13,7 @@ var getRandomWord = function(category) {
             response.json().then(function(data) {
                 var maxLength = data.length;
                 var randNum = Math.floor(Math.random() * maxLength);
-                var randWord(data(randNum));
+                var randWord = (data(randNum));
                 console.log(data[randNum]);
                 return randWord;
                 
