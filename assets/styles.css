@@ -15,3 +15,7 @@ body {
   top: calc(50vh - (359px / 2));
   left: calc(50vw - (170px / 2));
 }
+
+.hide {
+  display: none;
+}
