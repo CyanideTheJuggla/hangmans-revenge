@@ -1,6 +1,7 @@
 /* Using GIPHY API to get gif hints         */
 /* https://developers.giphy.com/docs/api/   */
 
+
 const GIPHY_API = {
     getGif: getGif
 }
@@ -12,12 +13,20 @@ var getGif = function(word) {
     fetch(apiUrl).then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                var imgEl = document.querySelector("#gif-img"); //temporary until UI made
+                var imgDivEl = document.createElement("div");
+                var imgEl = document.createElement("img");
+                imgEl.setAttribute("id", "clue-gif");
                 imgEl.setAttribute("src", data.data[0].images.downsized.url);
+                imgEl.setAttribute("alt", "gif of the guess word");
+                imgDivEl.appendChild(imgEl);
+                document.body.appendChild(imgDivEl);
                 
             });
         } else {
-            alert('Something went wrong!');
+            var errorAlert = document.createElement("p");
+            errorAlert.textContent = "Gif could not be found for clue";
         }
     });
 };
+
+
