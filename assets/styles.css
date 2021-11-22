@@ -77,7 +77,7 @@ body {
   justify-content: space-between;
 }
 
-.buttonContainer button {
+.buttonContainer .button {
   box-shadow: 3px 3px 5px rgb(0 0 0 / 75%);
   margin: 5px;
   width: 56px;
@@ -88,16 +88,16 @@ body {
   color: white;
   font-size: large;
 }
-.buttonContainer button:active {
+.buttonContainer .button:active {
   box-shadow: 2px 2px 5px rgb(0 0 0 / 75%);
   background-color: var(--primary-active) !important;
   transition: background-color 0.05s ease-in-out;
 }
-.buttonContainer button:hover {
+.buttonContainer .button:hover {
   background-color: var(--primary-hover);
   transition: background-color 0.05s ease-in-out;
 }
-.buttonContainer button:disabled {
+.buttonContainer .button:disabled {
   box-shadow: 2px 2px 5px rgb(0 0 0 / 75%);
   background-color: var(--disabled);
   transition: background-color 10ms ease-in-out;
