@@ -1,17 +1,3 @@
-:root {
-  --primary-color: rgb(185, 177, 223);
-}
-
-body {
-  background-color: var(--primary-color);
-}
-
-.stickman_parts {
-  background-image: url("./img/Stickman-part_6panel.png");
-  background-position-x: 0px;
-  width: 170px;
-  height: 359px;
-  position: absolute;
-  top: calc(50vh - (359px / 2));
-  left: calc(50vw - (170px / 2));
-}
+ * {
+    background-image: https://i.imgur.com/iabkigq.png;
+  }
