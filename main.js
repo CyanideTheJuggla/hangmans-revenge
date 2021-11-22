@@ -1,3 +1,16 @@
+//modal
+var playBtn = document.getElementById("play-button");
+var modalEl = document.getElementById("play-modal");
+
+var play = () => {
+    modalEl.classList.remove("is-active");
+
+    //generate new word from dictionary api
+    //create letter spaces 
+}
+
+playBtn.addEventListener("click", play);
+
 
 const stickman = {
     height: 360, 

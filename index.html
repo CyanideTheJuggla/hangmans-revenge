@@ -31,7 +31,7 @@
             <img src="./assets/img/Hangman_post.png" alt="complete stickman" />
           </div>
           <div class="column is-6-mobile is-6-desktop" id="clue-insult">
-            <p class="has-text-centered p-6">
+            <p class="has-text-centered p-2">
               "Good words are worth much, and cost little." <br>- George Herbert
             </p>
           </div>
@@ -47,7 +47,7 @@
           <p>_ _ _ _ _ _</p>
         </span>
         </div>
-        <div class="has-text-centered p-1 mx-6" id="letter-buttons">
+        <div class="has-text-centered mx-6" id="letter-buttons">
           <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="A" type="button">A</button>
           <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="B" type="button">B</button>
           <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="C" type="button">C</button>
@@ -77,6 +77,21 @@
         </div>
       </div>
     </section>
+
+    <!-- Modal -->
+    <div class="modal is-active" id="play-modal">
+      <div class="modal-background"></div>
+      <div class="modal-content has-background-black">
+        <h1 class="is-uppercase has-text-centered">Hangman's Revenge</h1>
+        <p class="has-text-centered ">Think fast to save him from his fate, <br> or you'll be sorry...</p>
+        <div class="has-text-centered">
+          <img src="./assets/img/Hangman6.png" alt="man hanging from gallows" />
+        </div>
+        <div class="py-5 has-text-centered is-size-1">
+            <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="play-button" onclick="game()">Play</button>
+        </div>
+      </div>
+    </div>
     <footer><span></span></footer>
 
     <script
