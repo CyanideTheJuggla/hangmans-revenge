@@ -1,4 +1,3 @@
-var clueBtnEl = document.querySelector("#clue");
 var clueInsultDivEl = document.getElementById("clue-insult");
 var currentWord;
 
@@ -40,7 +39,8 @@ console.log(DictionaryAPI.pathURL);
 
 console.log('main.js: OK!');
 
-clueBtnEl.addEventListener("click", function() {
-    getGif(currentWord.word)
+
+$('#clue').on("click", function() {
+    getGif(currentWord.word);
 });
 $('#new-word').on("click", getRandomCategory);
