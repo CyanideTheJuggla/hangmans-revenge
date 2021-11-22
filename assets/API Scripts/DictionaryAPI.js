@@ -6,7 +6,9 @@ var categoryArray = ['art', 'astronomy', 'animal', 'color', 'cooking', 'emotion'
 var currentWord;
 
 const DictionaryAPI = {
-    getRandomWord: getRandomWord
+    getRandomWord: getRandomWord,
+    randNum: randNum,
+    getRandomCategory: getRandomCategory
 };
 
 var randNum = function(max, min = 0) {

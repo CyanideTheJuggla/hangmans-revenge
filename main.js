@@ -31,7 +31,7 @@ $(document).ready(()=>{
 });
 
 console.log(GIPHY_API.pathURL);
-console.log(EvilInsultAPI.pathURL);
+//console.log(EvilInsultAPI.pathURL);
 console.log(DictionaryAPI.pathURL);
 
 console.log('main.js: OK!');
