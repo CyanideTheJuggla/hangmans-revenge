@@ -15,10 +15,13 @@ var getGif = function(word) {
             response.json().then(function(data) {
                 var imgDivEl = document.createElement("div");
                 var imgEl = document.createElement("img");
+                var textEl = document.createElement("p");
+                textEl.textContent = "Powered By GIPHY";
                 imgEl.setAttribute("id", "clue-gif");
                 imgEl.setAttribute("src", data.data[0].images.downsized.url);
                 imgEl.setAttribute("alt", "gif of the guess word");
                 imgDivEl.appendChild(imgEl);
+                imgDivEl.appendChild(textEl);
                 document.body.appendChild(imgDivEl);
                 
             });
