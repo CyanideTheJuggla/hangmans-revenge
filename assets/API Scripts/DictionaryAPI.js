@@ -24,6 +24,10 @@ var getRandomWord = function(category) {
                 var maxLength = data.length;
                 var randomNum = randNum(maxLength);
                 var randWord = (data[randomNum]);
+                while(randWord.length < 6) {
+                    randomNum = randNum(maxLength);
+                    randWord = data[randomNum];
+                }
                 console.log(randWord);
                 currentWord = randWord;
                 return randWord;

@@ -31,6 +31,7 @@ const hangmanMove = () => {
 
 
 $(document).ready(()=>{
+    getRandomCategory();
 });
 
 console.log(GIPHY_API.pathURL);
@@ -39,4 +40,7 @@ console.log(DictionaryAPI.pathURL);
 
 console.log('main.js: OK!');
 
-$("#clue").on("click", getGif(currentWord.word));
+clueBtnEl.addEventListener("click", function() {
+    getGif(currentWord.word)
+});
+$('#new-word').on("click", getRandomCategory);

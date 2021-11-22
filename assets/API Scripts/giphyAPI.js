@@ -13,17 +13,22 @@ var getGif = function(word) {
     fetch(apiUrl).then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                var imgDivEl = document.createElement("div");
-                var imgEl = document.createElement("img");
-                var textEl = document.createElement("p");
-                textEl.textContent = "Powered By GIPHY";
-                imgEl.setAttribute("id", "clue-gif");
-                imgEl.setAttribute("src", data.data[0].images.downsized.url);
-                imgEl.setAttribute("alt", "gif of the guess word");
-                imgDivEl.appendChild(imgEl);
-                imgDivEl.appendChild(textEl);
-                clueInsultDivEl.appendChild(imgDivEl);
-                
+                var imgEl = document.getElementById("clue-gif");
+                if (!imgEl) {
+                    var imgDivEl = document.createElement("div");
+                    imgEl = document.createElement("img");
+                    var textEl = document.createElement("p");
+                    
+                    textEl.textContent = "Powered By GIPHY";
+                    imgEl.setAttribute("id", "clue-gif");
+                    
+                    imgEl.setAttribute("alt", "gif of the guess word");
+                    imgDivEl.appendChild(imgEl);
+                    imgDivEl.appendChild(textEl);
+                    clueInsultDivEl.appendChild(imgDivEl);
+                }
+                var randomNum = randNum(data.data.length);
+                imgEl.setAttribute("src", data.data[randomNum].images.downsized.url);
             });
         } else {
             var errorAlert = document.createElement("p");
