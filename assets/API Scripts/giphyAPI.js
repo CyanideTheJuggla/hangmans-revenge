@@ -22,7 +22,7 @@ var getGif = function(word) {
                 imgEl.setAttribute("alt", "gif of the guess word");
                 imgDivEl.appendChild(imgEl);
                 imgDivEl.appendChild(textEl);
-                document.body.appendChild(imgDivEl);
+                clueInsultDivEl.appendChild(imgDivEl);
                 
             });
         } else {

@@ -1,3 +1,6 @@
+var clueBtnEl = document.querySelector("#clue");
+var clueInsultDivEl = document.getElementById("clue-insult");
+var currentWord;
 
 const stickman = {
     height: 360, 
@@ -35,3 +38,5 @@ console.log(GIPHY_API.pathURL);
 console.log(DictionaryAPI.pathURL);
 
 console.log('main.js: OK!');
+
+$("#clue").on("click", getGif(currentWord.word));

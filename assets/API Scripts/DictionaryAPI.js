@@ -3,12 +3,10 @@
 
 // Array of categories for words
 var categoryArray = ['art', 'astronomy', 'animal', 'color', 'cooking', 'emotion', 'holiday', 'music', 'science', 'vehicle', 'weather'];
-var currentWord;
+//var currentWord;
 
 const DictionaryAPI = {
-    getRandomWord: getRandomWord,
-    randNum: randNum,
-    getRandomCategory: getRandomCategory
+    getRandomWord: getRandomWord
 };
 
 var randNum = function(max, min = 0) {

@@ -1,23 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Bebas+Neue&family=Road+Rage&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
     <title>Hangman's Revenge</title>
-</head>
-<body>
-    <div class="stickman_parts"></div>
-    
+  </head>
+  <body>
+    <header class="has-text-centered p-2">
+      <h1 class="is-uppercase p-1">Hangman's Revenge</h1>
+      <p class="p-1">
+        A word game for the quick-witted and the thick-skinned!
+      </p>
+    </header>
+    <section class="container" id="main-page-content">
+      <div class="container">
+        <div class="columns is-mobile is-vcentered is-multiline is-centered p-2 m-2">
+          <div class="column is-6-mobile is-3-desktop has-text-centered" id="stickman">
+            <img src="./assets/img/Hangman_post.png" alt="complete stickman" />
+          </div>
+          <div class="column is-6-mobile is-6-desktop" id="clue-insult">
+            <p class="has-text-centered p-6">
+              "Good words are worth much, and cost little." <br>- George Herbert
+            </p>
+          </div>
+          <div class="column is-12-mobile is-3-desktop has-text-centered" id="option-buttons">
+            <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="clue" type="button">clue</button>
+            <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="new-word" type="button">new word</button>
+            <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="restart" type="button">restart</button>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="has-text-centered" id="letter-spaces"><span>
+          <p>_ _ _ _ _ _</p>
+        </span>
+        </div>
+        <div class="has-text-centered p-1 mx-6" id="letter-buttons">
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="A" type="button">A</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="B" type="button">B</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="C" type="button">C</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="D" type="button">D</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="E" type="button">E</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="F" type="button">F</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="G" type="button">G</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="H" type="button">H</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="I" type="button">I</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="J" type="button">J</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="K" type="button">K</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="L" type="button">L</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="M" type="button">M</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="N" type="button">N</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="O" type="button">O</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="P" type="button">P</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="Q" type="button">Q</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="R" type="button">R</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="S" type="button">S</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="T" type="button">T</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="U" type="button">U</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="V" type="button">V</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="W" type="button">W</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="X" type="button">X</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="Y" type="button">Y</button>
+          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="Z" type="button">Z</button>
+        </div>
+      </div>
+    </section>
+    <footer><span></span></footer>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <script type="text/javascript" src="./assets/API Scripts/DictionaryAPI.js"></script>
-    <script type="text/javascript" src="./assets/API Scripts/EvilInsultAPI.js"></script>
-    <script type="text/javascript" src="./assets/API Scripts/giphyAPI.js"></script>
-    <script type="text/javascript" src="./main.js"></script>
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://use.fontawesome.com/350c23fd24.js"></script>
+    <script
+      type="text/javascript"
+      src="./assets/API Scripts/DictionaryAPI.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./assets/API Scripts/EvilInsultAPI.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./assets/API Scripts/giphyAPI.js"
+    ></script>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
 </html>
