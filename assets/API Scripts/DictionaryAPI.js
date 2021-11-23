@@ -21,12 +21,14 @@ var randNum = function(max, min = 0) {
 };
 
 
-var getRandomWord = function(category) {
+function getRandomWord(category) {
     var apiUrl = "https://api.datamuse.com/words?rel_trg=" + category + "&md=d";
 
     fetch(apiUrl).then(function(response) {
+        //console.log('response received', response);
         if (response.ok) {
             response.json().then(function(data) {
+                //.log('response.json().then(data)', data);
                 var maxLength = data.length;
                 var randomNum = randNum(maxLength);
                 var randWord = (data[randomNum]);
@@ -34,19 +36,19 @@ var getRandomWord = function(category) {
                     randomNum = randNum(maxLength);
                     randWord = data[randomNum];
                 }
-                console.log(randWord);
+                //console.log('randWord', randWord);
                 currentWord = randWord;
-                return randWord;
-                
+                start();
             });
         } else {
-            var alertText = document.createElement("p");
-            alertText.textContent = "Word could not be retrieved";
+            console.log("Word could not be retrieved, it's now hippopotamus");
+            currentWord = {word: 'hippopotamus', defs: ['a large thick-skinned semiaquatic African mammal, with massive jaws and large tusks.']}
+            start();
         }
     });
 };
 
-var getRandomCategory = function() {
+function getRandomCategory() {
     var randomNum = randNum(categoryArray.length);
     var randCat = categoryArray[randomNum];
     console.log(randCat);
@@ -57,12 +59,12 @@ var getRandomCategory = function() {
 };
 
 var getDefinition = function() {
-    console.log(currentWord);
+    //console.log('currentWord', currentWord);
     var defDiv = document.createElement("div");
     var defListEl = document.createElement("ul");
     defDiv.appendChild(defListEl);
     for ( var i = 0; i < currentWord.defs.length; i++) {
-        console.log(currentWord.defs[i]);
+        //console.log('currentWord.defs[i]', currentWord.defs[i]);
         var def = document.createElement("p");
         def.setAttribute("id", "def-" + i);
         def.textContent = currentWord.defs[i];

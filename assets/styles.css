@@ -5,11 +5,19 @@ html {
 
 * {
   box-sizing: border-box;
+  user-select: none;
 }
 
 :root {
   --primary-color: #a31212;
-  --secondary-color : white; 
+  --secondary-color: white;
+}
+.hide {
+  display: none;
+}
+
+.fit {
+  object-fit: contain;
 }
 .hide {
   display: none;
@@ -20,10 +28,19 @@ html {
 }
 
 body {
-  background-image: url(img/revenge-clouds.jpg);
+  background-image: url(./img/revenge-clouds.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.tagline {
+  background-color: rgba(0, 0, 0, 0.75);
+  width: fit-content;
+  padding: 25px 75px;
+  margin: 0 auto;
 }
 
 .modal {
@@ -31,9 +48,13 @@ body {
 }
 
 .modal-content {
-  width: 75vw;
-  height: 90vh;
-  background-image: linear-gradient(180deg, #000000 0%, #414141 60%, #ffffff 90%);
+  height: fit-content;
+  background-image: linear-gradient(
+    180deg,
+    #000000 0%,
+    #414141 60%,
+    #ffffff 90%
+  );
 }
 
 .modal-content img {
@@ -48,14 +69,23 @@ body {
 
 h1, h2 {
   color: var(--secondary-color);
-  font-family: 'Road Rage', cursive;
+  font-family: "Road Rage", cursive;
   font-size: 72px;
 }
 
 p {
-  font-family: 'Special Elite', cursive;
+  font-family: "Special Elite", cursive;
   font-size: 18px;
-  color:var(--secondary-color);
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+.cont {
+  display: flex;
+  justify-content: center;
+  font-family: "Special Elite", cursive;
+  font-size: 18px;
+  color: var(--secondary-color);
   text-align: center;
 }
 
@@ -63,7 +93,6 @@ p {
   width: 100vw;
   margin: 0vw;
 }
-
 
 #stickman img {
   width: 100%;
@@ -76,11 +105,11 @@ p {
   background-color: rgba(0,0,0,0.75);
 }
 
-.btn{
+.btn {
   padding: auto;
   background-color: var(--primary-color);
   color: var(--secondary-color);
-  font-family: 'Road Rage', cursive;
+  font-family: "Road Rage", cursive;
   /* font-size: 36px; */
   text-transform: uppercase;
   text-align: center;
@@ -101,6 +130,19 @@ p {
   width: 50px;
   height: 50px;
 }
+.letter-button:disabled {
+  background-color: gray;
+}
+
+.letter-containment {
+  position: absolute;
+  top: 55vh;
+  left: 0vw;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+}
 
 #letter-spaces p {
   font-size: 72px;
@@ -111,7 +153,6 @@ p {
 }
 
 @media screen and (max-width: 600px) {
- 
   h1 {
     font-size: 48px;
   }
@@ -126,7 +167,7 @@ p {
   }
 
   #letter-buttons {
-    margin: 0px ;
+    margin: 0px;
   }
 
   .letter-button {
