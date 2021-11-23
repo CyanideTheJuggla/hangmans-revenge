@@ -208,7 +208,7 @@ const insult = () => {
 
 const hangmanMove = () => {
     //swap out the image and makes sure the dimensions are set
-    $('.stickman_parts')
+    $('#stickman')
         .attr('src', hangman.imgSrc[hangman.wrongAnswers])
         .css('height', '359px')
         .css('width', '170px');
