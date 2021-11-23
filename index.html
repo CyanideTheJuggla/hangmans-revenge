@@ -67,6 +67,34 @@
       </div>
     </div>
 
+    <!-- End Modal -->
+    <div class="modal is-active" id="end-modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <h1 class="is-uppercase has-text-centered">Game Over</h1>
+        <div class="columns">
+          <div class="column">
+            <p class="has-text-centered is-size-3">Score:<span id="score"></span></p>
+            <div class=" has-text-centered">
+              <img src="./assets/img/Hangman6.png" alt="man hanging from gallows" />
+            </div>
+          </div> 
+          <div class="column">
+            <h2 class="has-text-centered"> Word List </h2> 
+            <div id="past-word-list">
+
+            </div>
+          </div>
+        </div>
+        <div class="py-5 has-text-centered is-size-1">
+            <button class="btn is-rounded is-size-5-mobile is-size-2-tablet" id="high-scores-btn" >High Scores</button>
+            <button class="btn is-rounded is-size-5-mobile is-size-2-tablet" id="play-again-btn" >Play Again</button>
+        </div>
+      </div>
+    </div>
+
+    <footer><p class="has-text-left is-size-3-tablet"></p></footer>
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
       type="text/javascript" src="./assets/API Scripts/giphyAPI.js"></script>
