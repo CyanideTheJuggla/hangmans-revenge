@@ -2,6 +2,7 @@ var clueInsultDivEl = document.getElementById("clue-insult");
 var currentWord;
 
 
+
 $(document).ready(()=>{
     getRandomCategory();
 });
