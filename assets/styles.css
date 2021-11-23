@@ -1,23 +1,55 @@
-* {
-  box-sizing: border-box;
+html {
+  width: 100%;
+  height: 100%;
 }
 
-body {
-  background-image: url(img/revenge-clouds.jpg);
-  background-size: cover;
+* {
+  box-sizing: border-box;
 }
 
 :root {
   --primary-color: #a31212;
   --secondary-color : white; 
 }
+.hide {
+  display: none;
+}
 
-h1 {
+.fit {
+  object-fit: contain;
+}
+
+body {
+  background-image: url(img/revenge-clouds.jpg);
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal {
+  width: 100vw;
+}
+
+.modal-content {
+  width: 75vw;
+  height: 90vh;
+  background-image: linear-gradient(180deg, #000000 0%, #414141 60%, #ffffff 90%);
+}
+
+.modal-content img {
+  width: 300px;
+  height: 400px;
+  object-fit: contain;
+}
+
+.modal-content h1 {
+  color: var(--primary-color);
+}
+
+h1, h2 {
   color: var(--secondary-color);
   font-family: 'Road Rage', cursive;
   font-size: 72px;
-  margin-top: 4px;
-  margin-bottom: 0px;
 }
 
 p {
@@ -32,10 +64,6 @@ p {
   margin: 0vw;
 }
 
-/* #stickman {
-  width: 300px;
-  height: 400px;
-} */
 
 #stickman img {
   width: 100%;
@@ -43,7 +71,8 @@ p {
   object-fit: contain;
 }
 
-#clue-insult {
+
+#clue-insult p {
   background-color: rgba(0,0,0,0.75);
 }
 
@@ -62,7 +91,7 @@ p {
   padding: 5px;
   width: 150px;
   text-align: center;
-  margin: 5px;
+  margin: 15px;
 }
 
 .letter-button {
@@ -75,6 +104,10 @@ p {
 
 #letter-spaces p {
   font-size: 72px;
+}
+
+#high-scores-btn, #play-again-btn {
+  border-radius: 15px;
 }
 
 @media screen and (max-width: 600px) {
