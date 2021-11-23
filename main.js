@@ -1,28 +1,37 @@
-//modal
+//play modal
 var playBtn = document.getElementById("play-button");
-var modalEl = document.getElementById("play-modal");
+var playModalEl = document.getElementById("play-modal");
+var endModalEl = document.getElementById("end-modal");
+var highScoresBtn = document.getElementById("high-scores-btn");
+var playAgainBtn = document.getElementById("play-again-btn");
 
 var play = () => {
-    modalEl.classList.remove("is-active");
-
+    playModalEl.classList.remove("is-active");
+    
     //generate new word from dictionary api
     //create letter spaces 
+    start();
 }
 
+// var endGame = () => {
+//     endModalEl.classList.add("is-active");
+// }
+
 playBtn.addEventListener("click", play);
+
 
 
 const stickman = {
     height: 360, 
     width: 169, 
     imgSrc: [
-        'assets/img/StickmanFull.png',
-        'assets/img/Stickman1.png',
-        'assets/img/Stickman2.png',
-        'assets/img/Stickman3.png',
-        'assets/img/Stickman4.png',
-        'assets/img/Stickman5.png',
-        'assets/img/Stickman6.png'
+        'assets/img/Hangman_post.png',
+        'assets/img/Hangman1.png',
+        'assets/img/Hangman2.png',
+        'assets/img/Hangman3.png',
+        'assets/img/Hangman4.png',
+        'assets/img/Hangman5.png',
+        'assets/img/Hangman6.png'
     ],
     imgPoint: 0
 };
