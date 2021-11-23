@@ -1,4 +1,4 @@
-//scorecard, I named it hangman and also store image sources
+//scorecard. stores image source links, right answers, wrong answers, and the round time 
 const hangman = {
     imgSrc: [
         'assets/img/empty.png',
@@ -18,7 +18,7 @@ const alphabet = Array.from(Array(26)).map((e, i) => i + 65).map((x) => String.f
 
 const testWord = "HIPPOPOTAMUS";
 
-let currentWord;
+//let currentWord;
 
 const start = () => {
     //generate keys
@@ -57,19 +57,23 @@ const end = () => {
     });
 }
 
-const populateWord = (word) => {
+ function populateWord(){
     //destroy anything in wordContainer
     $('.wordContainer').html('');
     //split word into array
-    currentWord = word.toUpperCase().split('');
-    for (let i = 0; i < currentWord.length; i++) {
+    //console.log('currentWord', currentWord);
+    const wordLetters = currentWord.word.split('');
+    //console.log('wordLetters', wordLetters);
+    for (let i = 0; i < wordLetters.length; i++) {
+        //console.log(wordLetters[i]);
         //populate blanks for each letter within their own span element
-        const span = document.createElement('span');
-        span.setAttribute('data-position', i);
-        span.textContent = '_'
-        //add span to wordContainer
-        document.getElementsByClassName('wordContainer')[0].appendChild(span);
+        const blank_ = document.createElement('p');
+        blank_.setAttribute('data-position', i);
+        blank_.textContent = '_'
+        //add blank_ to wordContainer
+        $('#letter-spaces span.cont').append(blank_);
     };
+
 }
 
 const generateKeys = () =>{
