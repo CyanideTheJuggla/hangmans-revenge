@@ -32,11 +32,12 @@ function getRandomWord(category) {
                 }
                 //console.log('randWord', randWord);
                 currentWord = randWord;
-                populateWord(randWord);
+                start();
             });
         } else {
-            console.log("Word could not be retrieved");
-            populateWord('hippopotamus');
+            console.log("Word could not be retrieved, it's now hippopotamus");
+            currentWord = {word: 'hippopotamus', defs: ['a large thick-skinned semiaquatic African mammal, with massive jaws and large tusks.']}
+            start();
         }
     });
 };

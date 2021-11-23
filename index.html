@@ -18,67 +18,40 @@
     <title>Hangman's Revenge</title>
   </head>
   <body>
-    <header class="has-text-centered">
-      <h1 class="is-uppercase">Hangman's Revenge</h1>
-      <p class="tagline">
-        A word game for the quick-witted and the thick-skinned!
-      </p>
-    </header>
-    <section class="container" id="main-page-content">
-      <div class="container">
-        <div class="columns is-mobile is-vcentered is-multiline is-centered">
-          <div class="column is-6-mobile is-3-desktop has-text-centered" id="stickman">
-            <img src="./assets/img/Hangman_post.png" alt="complete stickman" />
-          </div>
-          <div class="column is-6-mobile is-6-desktop" id="clue-insult">
-            <p class="has-text-centered p-2">
-              "Good words are worth much, and cost little." <br>- George Herbert
-            </p>
-          </div>
-          <div class="column is-12-mobile is-3-desktop has-text-centered" id="option-buttons">
-            <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="clue" type="button">clue</button>
-            <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="new-word" type="button">new word</button>
-            <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="restart" type="button">restart</button>
+    <div class="gameWindow" style="display: none; opacity: 0;">
+      <header class="has-text-centered">
+        <h1 class="is-uppercase">Hangman's Revenge</h1>
+        <p class="tagline">
+          A word game for the quick-witted and the thick-skinned!
+        </p>
+      </header>
+      <section class="container" id="main-page-content">
+        <div class="container">
+          <div class="columns is-mobile is-vcentered is-multiline is-centered">
+            <div class="column is-6-mobile is-3-desktop has-text-centered" id="stickman">
+              <div class="roundTime"><p class="timeElapsed"></p></div>
+              <img src="./assets/img/Hangman_post.png" alt="complete stickman" class="stickman_parts" />
+            </div>
+            <div class="column is-6-mobile is-6-desktop" id="clue-insult">
+              <p class="has-text-centered p-2">
+                "Good words are worth much, and cost little." <br> - George Herbert
+              </p>
+            </div>
+            <div class="column is-12-mobile is-3-desktop has-text-centered" id="option-buttons">
+              <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="clue" type="button">clue</button>
+              <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="new-word" type="button">new word</button>
+              <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="restart" type="button">restart</button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="container">
-        <div class="has-text-centered" id="letter-spaces">
-          <span class="cont">
-          <!--p>_ _ _ _ _ _</p-->
-          </span>
+        <div class="container letter-containment">
+          <div class="has-text-centered" id="letter-spaces">
+            <span class="cont"></span>
+          </div>
+          <div class="has-text-centered mx-6" id="letter-buttons"></div>
         </div>
-        <div class="has-text-centered mx-6" id="letter-buttons">
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="A" type="button">A</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="B" type="button">B</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="C" type="button">C</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="D" type="button">D</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="E" type="button">E</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="F" type="button">F</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="G" type="button">G</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="H" type="button">H</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="I" type="button">I</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="J" type="button">J</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="K" type="button">K</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="L" type="button">L</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="M" type="button">M</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="N" type="button">N</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="O" type="button">O</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="P" type="button">P</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="Q" type="button">Q</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="R" type="button">R</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="S" type="button">S</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="T" type="button">T</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="U" type="button">U</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="V" type="button">V</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="W" type="button">W</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="X" type="button">X</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="Y" type="button">Y</button>
-          <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="Z" type="button">Z</button>
-        </div>
-      </div>
-    </section>
-
+      </section>
+    </div>
     <!-- Modal -->
     <div class="modal is-active" id="play-modal">
       <div class="modal-background"></div>
@@ -89,29 +62,18 @@
           <img src="./assets/img/Hangman6.png" alt="man hanging from gallows" />
         </div>
         <div class="py-5 has-text-centered is-size-1">
-            <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="play-button" onclick="game()">Play</button>
+            <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="play-button">Play</button>
         </div>
       </div>
     </div>
 
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+      type="text/javascript" src="./assets/API Scripts/giphyAPI.js"></script>
     <script src="https://use.fontawesome.com/350c23fd24.js"></script>
-    <script
-      type="text/javascript"
-      src="./assets/API Scripts/DictionaryAPI.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="./assets/API Scripts/EvilInsultAPI.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="./assets/API Scripts/giphyAPI.js"
-    ></script>
+    <script type="text/javascript" src="./assets/API Scripts/DictionaryAPI.js"></script>
+    <script type="text/javascript" src="./assets/API Scripts/EvilInsultAPI.js"></script>
+    <script type="text/javascript" src="./assets/API Scripts/giphyAPI.js"></script>
     <script type="text/javascript" src="./gameplay.js"></script>
     <script type="text/javascript" src="./main.js"></script>
   </body>
