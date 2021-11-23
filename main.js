@@ -17,7 +17,6 @@ var play = () => {
 playBtn.addEventListener("click", play);
 
 
-
 const stickman = {
     height: 360, 
     width: 169, 
