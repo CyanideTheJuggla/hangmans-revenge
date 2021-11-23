@@ -13,9 +13,9 @@ var play = () => {
     start();
 }
 
-// var endGame = () => {
-//     endModalEl.classList.add("is-active");
-// }
+var endGame = () => {
+    endModalEl.classList.add("is-active");
+}
 
 playBtn.addEventListener("click", play);
 

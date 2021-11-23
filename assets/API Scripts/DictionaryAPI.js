@@ -1,9 +1,13 @@
 /* Using DataMuse API to get word lists */
 /* https://www.datamuse.com/api/        */
 
+// End game element to show definitons
+var wordListEl = document.getElementById("past-word-list");
+// Div for displaying definition
+var defTextDivEl = document.createElement("div");
 // Array of categories for words
 var categoryArray = ['art', 'astronomy', 'animal', 'color', 'cooking', 'emotion', 'holiday', 'music', 'science', 'vehicle', 'weather'];
-//var currentWord;
+
 
 var wordList = [];
 
@@ -47,6 +51,8 @@ var getRandomCategory = function() {
     var randCat = categoryArray[randomNum];
     console.log(randCat);
     var randomWord = getRandomWord(randCat);
+    wordList.push(randomWord);
+    localStorage.setItem("wordList", JSON.stringify(wordList));
     return randomWord;
 };
 
@@ -66,6 +72,7 @@ var getDefinition = function() {
 };
 
 var loadWords = function() {
+    debugger;
     wordList = JSON.parse(localStorage.getItem("wordList"));
 
     if (!wordList) {
@@ -83,6 +90,8 @@ var loadWords = function() {
         wordBtnEl.textContent = wordList.word;
         pastWordsListEl.appendChild(wordBtnEl);
     }
+    wordListEl.appendChild(defTextDivEl);
+    wordListEl.appendChild(pastWordsDivEl);
 };
 
 var handleBtnEvent = function(event) {
@@ -111,6 +120,7 @@ var showDef = function(wordObject) {
         defText.textContent = definitions[i];
         defListEl.appendChild(defText);
     }
+    defTextDivEl.appendChild(defDivEl);
 };
 
 // var getDefinition = function() {
