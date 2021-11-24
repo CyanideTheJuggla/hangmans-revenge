@@ -68,6 +68,7 @@ const start = () => {
 const end = () => {
     $('.letter-button').off('click'); //destroy click events for buttons
     animatedScreenFade('gameWindow', 'endModal'); //fade out and remove game window
+    showWordButtons();
 }
 
  function populateWord(){
@@ -190,6 +191,9 @@ const calculateScore = () => {
 }
 
 const win = () => {
+    wordList.push(currentWord);
+    console.log(wordList);
+    saveWords();
     $('.letter-button').attr('disabled', true);
     console.log('WIN! \nDictionaryAPI.getDefinition(currentWord)');
     $('#endTitle').html('Win!');
@@ -198,6 +202,8 @@ const win = () => {
 }
 
 const lose = () => {
+    wordList.push(currentWord);
+    saveWords();
     $('.letter-button').attr('disabled', true);
     $('#endTitle').html('Game Over');
     calculateScore();

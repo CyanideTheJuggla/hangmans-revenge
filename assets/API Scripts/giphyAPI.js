@@ -16,9 +16,8 @@ var getGif = function(word) {
                 var imgEl = document.getElementById("clue-gif");
                 if (!imgEl) {
                     //var quote = document.getElementById("word-quote");
-                    //quote.classList.add("hide");
+                    //quote.classList.add ("hide");
                     var imgDivEl = document.createElement("div");
-                    imgDivEl.classList = 'clueContainer';
                     imgEl = document.createElement("img");
                     var textEl = document.createElement("p");
                     

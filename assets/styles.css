@@ -187,6 +187,16 @@ p {
   overflow-x: hidden;
 }
 
+#past-word-list {
+  height: 350px;
+  overflow-y: auto;
+}
+
+#clue-gif {
+  height: 275px;
+  width: auto;
+}
+
 @media screen and (max-width: 600px) {
   h1 {
     font-size: 48px;

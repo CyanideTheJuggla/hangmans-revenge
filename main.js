@@ -20,7 +20,7 @@ var currentWord;
 
 $(document).ready(()=>{
     console.log('launching document.ready');
-    
+    loadWords();
 });
 
 $('#clue').on("click", function() {
