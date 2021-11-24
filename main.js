@@ -10,6 +10,11 @@ var play = () => {
     console.log('fired');
     getRandomCategory();
 }
+
+var endGame = () => {
+    endModalEl.classList.add("is-active");
+}
+
 var clueInsultDivEl = document.getElementById("clue-insult");
 var currentWord;
 
@@ -24,3 +29,5 @@ $('#clue').on("click", function() {
 $('#new-word').on("click", getRandomCategory);
 $('.letter-button').on('click', letterKey)
 $('#play-button').on('click', play);
+
+loadWords();

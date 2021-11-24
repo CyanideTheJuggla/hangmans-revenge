@@ -65,6 +65,7 @@ const start = () => {
 }
 
 const end = () => {
+    wordList.push(currentWord);
     //destroy click events for buttons
     $('.letter-button').off('click');
     const startButton = $('#play-modal');
