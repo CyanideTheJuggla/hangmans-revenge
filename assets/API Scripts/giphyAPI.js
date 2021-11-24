@@ -16,9 +16,11 @@ var getGif = function(word) {
                 var imgEl = document.getElementById("clue-gif");
                 if (!imgEl) {
                     var imgDivEl = document.createElement("div");
+                    imgDivEl.setAttribute("id", "img-div-el");
                     imgDivEl.setAttribute("class", "gif-div is-flex-direction-column is-justify-content-center has-text-centered")
                     imgEl = document.createElement("img");
                     var textEl = document.createElement("p");
+                    textEl.setAttribute("id", "giphy-credit");
                     
                     textEl.textContent = "Powered By GIPHY";
                    

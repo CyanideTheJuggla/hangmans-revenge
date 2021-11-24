@@ -91,7 +91,7 @@ var showWordButtons = function() {
     // removes the words from previous rounds
     var pastWordsDivEl = document.getElementById("past-words-div");
     if (pastWordsDivEl) {
-        pastWordsDivEl.remove();
+        $(pastWordsDivEl).children().remove();
     }
     // creates the div and list elements to store the buttons
     pastWordsDivEl = document.createElement("div");

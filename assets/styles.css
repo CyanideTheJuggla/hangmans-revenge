@@ -138,6 +138,11 @@ p {
   border-radius: 15px;
 }
 
+#clue-gif {
+  height: 300px;
+  width: auto;
+}
+
 @media screen and (max-width: 768px) {
   .modal-content img {
     width: 100px;

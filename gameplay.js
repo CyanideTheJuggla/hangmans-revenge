@@ -69,9 +69,10 @@ const end = () => {
     
     saveWords();
     //clear GIF or insult
-    var imgEl = document.getElementById("clue-gif");
+    var imgEl = document.getElementById("img-div-el");
     if(imgEl) {
-        imgEl.setAttribute("src", "");
+        imgEl.remove();
+        
     }
     //destroy click events for buttons
     $('.letter-button').off('click');
