@@ -169,7 +169,7 @@ const insult = () => {
     const insult = getInsult();
     clueInsultDivEl.innerHTML = "";
     const insultDiv = document.createElement("div");
-    insultDiv.setAttribute("class", "is-flex has-text-centered is-align-items-center")
+    insultDiv.setAttribute("class", "is-flex has-text-centered is-align-items-center");
     const insultText = document.createElement("p");
     insultText.textContent +=insult;
     insultText.setAttribute("class", "m-2")
@@ -208,13 +208,11 @@ const lose = () => {
 const end = () => {
     //destroy click events for buttons
     $('.letter-button').off('click');
+    //hide page content
+    var pageEl = document.getElementById("main-page-content");
+    pageEl.classList.add("hide");
    //display endModal El 
-    endModalEl.attr("class", "is-active");
-    endModalEl.animate({ opacity: 1.0 }, 750);
-    //fade out and remove game window
-    $('.gameWindow').animate({ opacity: 0 }, 250,  ()=>{
-        $('.gameWindow').css('display', 'none');
-    });
+    endModalEl.setAttribute("class", "is-active");
 }
 
 
