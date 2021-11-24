@@ -11,7 +11,7 @@ var currentWord;
 var play = () => {
     document.getElementById("play-modal").classList.remove("is-active");
     endModalEl.classList.remove("is-active");
-    console.log('fired');
+   //console.,log('fired');
     getRandomCategory();
     
 }
@@ -25,7 +25,7 @@ var clueInsultDivEl = document.getElementById("clue-insult");
 var currentWord;
 
 $(document).ready(()=>{
-    console.log('launching document.ready');
+   //console.,log('launching document.ready');
     
 });
 

@@ -11,11 +11,11 @@ var insultArray = ["If I throw a stick, will you leave?", "You’re a gray sprin
 //     getInsult: () => {
 //         fetch(EvilInsultAPI.pathURL)
 //             .then((response)=>{
-//                 console.log(response.json());
+//                 //console.log(response.json());
 //                 return response.json();
 //             })
 //             .then((data)=>{
-//                 console.log('data', data);
+//                 //console.log('data', data);
 //             });
 //     }
 // }

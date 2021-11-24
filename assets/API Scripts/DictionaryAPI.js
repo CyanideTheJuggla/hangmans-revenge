@@ -50,7 +50,7 @@ function getRandomWord(category) {
             });
         } else {
             // if the response was not valid, uses a placeholder word and starts game
-            console.log("Word could not be retrieved, it's now hippopotamus");
+            //console.log("Word could not be retrieved, it's now hippopotamus");
             currentWord = {word: 'hippopotamus', defs: ['a large thick-skinned semiaquatic African mammal, with massive jaws and large tusks.']}
             start();
         }
@@ -63,7 +63,7 @@ function getRandomCategory() {
     var randomNum = randNum(categoryArray.length);
     // retrieves the category at the given index
     var randCat = categoryArray[randomNum];
-    console.log('randCat', randCat);
+    //console.log('randCat', randCat);
     // calls the api to get a random word based on the category
     getRandomWord(randCat);
 };

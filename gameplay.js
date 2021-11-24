@@ -61,7 +61,7 @@ const calculateScore = () => {
     const score = ((Math.fround(
             (hangman.rightAnswers - hangman.wrongAnswers) / hangman.timeElapsed)
         ) * currentWord.score);
-    console.log('score', score);
+   //console.,log('score', score);
     //creating score elements
     const right = document.createElement('p');
     right.textContent = 'Right Answers: ' + hangman.rightAnswers;
@@ -126,9 +126,9 @@ function populateWord(){
     //destroy anything in wordContainer
     $('#letter-spaces').html('');
     //split word into array
-    console.log('currentWord', currentWord);
+   //console.,log('currentWord', currentWord);
     wordLetters = currentWord.word.split('');
-    console.log('wordLetters', wordLetters);
+   //console.,log('wordLetters', wordLetters);
     for (let i = 0; i < wordLetters.length; i++) {
         //console.log(wordLetters[i]);
         //populate blanks for each letter within their own span element
@@ -164,7 +164,7 @@ const generateKeys = () =>{
 const letterKey = (e) => {
     //get letter from dataset
     const playerInput = e.target.dataset.letter;
-    console.log('Fired letterKey');
+   //console.,log('Fired letterKey');
     //check if it's correct or not
     const IsCorrect = checkInput(playerInput);
     //send the input where it needs to go
@@ -177,9 +177,9 @@ const letterKey = (e) => {
 
 const checkInput = (inputValue) => {
     inputValue = inputValue.toLowerCase();
-    console.log('checkInput(inputVal)', inputValue);
-    console.log('wordLetters', wordLetters);
-    console.log('wordLetters.includes(inputValue)', wordLetters.includes(inputValue));
+   //console.,log('checkInput(inputVal)', inputValue);
+   //console.,log('wordLetters', wordLetters);
+   //console.,log('wordLetters.includes(inputValue)', wordLetters.includes(inputValue));
     return wordLetters.includes(inputValue);
 }
 
@@ -189,16 +189,16 @@ const correctAnswer = (playerInput) =>{;
     for (let p = 0; p < wordArry.length; p++) {
         //find each position of the correct input
         const element = wordArry[p];
-        console.log('element', element);
-        console.log('playerInput', playerInput);
+       //console.,log('element', element);
+       //console.,log('playerInput', playerInput);
         //add to array
         if(element == playerInput) pos.push(p);
     }
-    console.log('Correct at: ' + pos.length + ' position' + (pos.length == 1 ? '' : 's'));
+   //console.,log('Correct at: ' + pos.length + ' position' + (pos.length == 1 ? '' : 's'));
     //swap blank for letter at each position in pos array
     for (let i = 0; i < pos.length; i++) {
         const element = pos[i];
-        console.log(element);
+       //console.,log(element);
         $('p[data-position="' + element + '"]').html(playerInput);
         //increase rightanswers on score card per correct letter
         hangman.rightAnswers++
@@ -211,7 +211,7 @@ const correctAnswer = (playerInput) =>{;
 
 const wrongAnswer = () => {
     insult();
-    console.log('WRONG');
+   //console.,log('WRONG');
     //add strike to scorecard
     hangman.wrongAnswers++;
     //add to hangman
@@ -264,7 +264,7 @@ const win = () => {
     saveWords();
     endGame();
     //TODO
-    console.log('WIN! \nDictionaryAPI.getDefinition(currentWord)');
+   //console.,log('WIN! \nDictionaryAPI.getDefinition(currentWord)');
     setTimeout(end, 1500);//just for now
 }
 
@@ -275,7 +275,7 @@ const lose = () => {
     endGame();
     //TODO
     $('.letter-button').attr('disabled', true);
-    console.log('You lost, you suck.\nDictionaryAPI.getDefinition(currentWord)');
+   //console.,log('You lost, you suck.\nDictionaryAPI.getDefinition(currentWord)');
     setTimeout(end, 1500);//just for now
 }
 
