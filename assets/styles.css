@@ -134,7 +134,7 @@ p {
 }
 
 
-#high-scores-btn, #play-again-btn {
+#high-scores-btn, #play-again-btn, .word-btn {
   border-radius: 15px;
 }
 

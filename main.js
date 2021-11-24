@@ -10,28 +10,19 @@ var currentWord;
 
 var play = () => {
     document.getElementById("play-modal").classList.remove("is-active");
+    endModalEl.classList.remove("is-active");
     console.log('fired');
     getRandomCategory();
-    generateKeys(); //generate keys
+    
 }
 
-const end = () => {
-    //destroy click events for buttons
-    $('.letter-button').off('click');
-    //hide page content
-    var pageEl = document.getElementById("main-page-content");
-    pageEl.classList.add("hide");
-   //display endModal El 
-    endModalEl.setAttribute("class", "is-active");
-    showDef();
-    var playAgain = () => {
-        endModalEl.classList.add("hide");
-        pageEl.classList.remove("hide");
-        
-    }
-    start();
-    playAgainBtn.addEventListener("click", playAgain);
+var endGame = () => {
+    endModalEl.classList.add("is-active");
+    showWordButtons();
 }
+
+var clueInsultDivEl = document.getElementById("clue-insult");
+var currentWord;
 
 $(document).ready(()=>{
     console.log('launching document.ready');
@@ -44,3 +35,6 @@ $('#clue').on("click", function() {
 $('#new-word').on("click", getRandomCategory);
 $('.letter-button').on('click', letterKey)
 $('#play-button').on('click', play);
+$('#play-again-btn').on('click', play);
+
+loadWords();

@@ -42,12 +42,47 @@ const timeKeep = () => {
     $('.timeElapsed').html(new Date(0,0,0,0,0,0,timeElapsed).toLocaleTimeString().substring(3,8));
 }
 
+const animatedScreenFade = () => {
+    //fade start modal
+    const startButton = $('#play-modal');
+    startButton.animate({ opacity: 0.0 }, 750, () => {
+        //remove it so it doesn't cause issues
+        startButton.css('display', 'none');
+        startButton.removeClass('is-active');
+    });
+    //fade in and display game window
+    $('.gameWindow').css('display', 'block');
+    $('.gameWindow').animate({ opacity: 1 }, 250);
+}
+
 const start = () => { 
+    generateKeys(); //generate keys
     resetState(); //reset states
     populateWord(); //populate word blanks
-
+    animatedScreenFade();
     //keep track of elapsed time for scoring
     timer = setInterval(timeKeep, 100);
+}
+
+
+const end = () => {
+    
+    saveWords();
+    //clear GIF or insult
+    var imgEl = document.getElementById("clue-gif");
+    if(imgEl) {
+        imgEl.setAttribute("src", "");
+    }
+    //destroy click events for buttons
+    $('.letter-button').off('click');
+    const startButton = $('#play-modal');
+    //show and fade in start button
+    startButton.css('display', 'block');
+    startButton.animate({ opacity: 1.0 }, 750);
+    //fade out and remove game window
+    $('.gameWindow').animate({ opacity: 0 }, 250,  ()=>{
+        $('.gameWindow').css('display', 'none');
+    });
 }
 
 function populateWord(){
@@ -70,6 +105,7 @@ function populateWord(){
 }
 
 const generateKeys = () =>{
+    $('#letter-buttons').html('');
     var letterButtons = document.getElementById("letter-buttons");
     
     for (let i = 0; i < alphabet.length; i++) {
@@ -154,6 +190,13 @@ const insult = () => {
     //insult
     const insult = getInsult();
     clueInsultDivEl.innerHTML = "";
+    //clear GIF or insult
+    // var imgEl = document.getElementById("clue-gif");
+    // var getSrc = "";
+    // if(imgEl) {
+    //     getSrc = imgEl.getAttribute("src");
+    //     imgEl.setAttribute("src", "");
+    // }
     const insultDiv = document.createElement("div");
     insultDiv.setAttribute("class", "is-flex has-text-centered is-align-items-center");
     const insultText = document.createElement("p");
@@ -163,7 +206,7 @@ const insult = () => {
     clueInsultDivEl.appendChild(insultDiv);
     function closeInsultDiv(){
         insultDiv.remove();
-        getGif();
+        //imgEl.setAttribute("src", getSrc);
         }
         
     // close the div in 5 secs
@@ -179,12 +222,18 @@ const hangmanMove = () => {
 };
 
 const win = () => {
+    wordList.push(currentWord);
+    saveWords();
+    endGame();
     //TODO
     console.log('WIN! \nDictionaryAPI.getDefinition(currentWord)');
     setTimeout(end, 1500);//just for now
 }
 
 const lose = () => {
+    wordList.push(currentWord);
+    saveWords();
+    endGame();
     //TODO
     $('.letter-button').attr('disabled', true);
     console.log('You lost, you suck.\nDictionaryAPI.getDefinition(currentWord)');
