@@ -186,6 +186,7 @@ const calculateScore = () => {
     scoreSheet.append(calcContainer);
     scoreSheet.append(document.createElement('hr'));
     scoreSheet.append(totalScore);
+    scoreSheet.prepend('Score:')
 }
 
 const win = () => {
@@ -199,6 +200,7 @@ const win = () => {
 const lose = () => {
     $('.letter-button').attr('disabled', true);
     $('#endTitle').html('Game Over');
+    calculateScore();
     //console.log('You lost, you suck.\nDictionaryAPI.getDefinition(currentWord)');
     setTimeout(end, 1000);
 }
