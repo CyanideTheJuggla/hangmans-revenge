@@ -7,9 +7,14 @@ var playAgainBtn = document.getElementById("play-again-btn");
 
 var play = () => {
     //document.getElementById("play-modal").classList.remove("is-active");
-    console.log('fired');
+    //console.log('fired');
     getRandomCategory();
 }
+
+const showHighScores = () => {
+    console.log('yeh, i got high scores. wut u gunna do about et?');
+}
+
 var clueInsultDivEl = document.getElementById("clue-insult");
 var currentWord;
 
@@ -21,6 +26,10 @@ $(document).ready(()=>{
 $('#clue').on("click", function() {
     getGif(currentWord.word);
 });
+
 $('#new-word').on("click", getRandomCategory);
 $('.letter-button').on('click', letterKey)
-$('#play-button').on('click', play);
+$('.playButton').on('click', play);
+$('.highScores').on('click', showHighScores);
+
+

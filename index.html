@@ -33,14 +33,14 @@
               <img src="./assets/img/Hangman_post.png" alt="complete stickman" class="stickman_parts" />
             </div>
             <div class="column is-6-mobile is-6-desktop" id="clue-insult">
-              <p class="has-text-centered p-2">
+              <p class="has-text-centered p-2" id="word-quote">
                 "Good words are worth much, and cost little." <br> - George Herbert
               </p>
             </div>
             <div class="column is-12-mobile is-3-desktop has-text-centered" id="option-buttons">
               <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="clue" type="button">clue</button>
               <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="new-word" type="button">new word</button>
-              <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="restart" type="button">restart</button>
+              <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet highScores" id="highScores" type="button">High Scores</button>
             </div>
           </div>
         </div>
@@ -54,32 +54,37 @@
     </section>
 
     <!-- Play Modal -->
-    <div class="modal is-active" id="play-modal">
+    <div class="modal is-active playModal" id="play-modal">
       <div class="modal-background"></div>
-      <div class="modal-content">
+      <div class="modal-content" >
         <h1 class="is-uppercase has-text-centered">Hangman's Revenge</h1>
         <p class="has-text-centered ">Think fast to save him from his fate, <br> or you'll be sorry...</p>
         <div class="has-text-centered">
-          <img src="./assets/img/Hangman6.png" alt="man hanging from gallows" />
+          <img src="./assets/img/Hangman_post.png" alt="gallows" />
         </div>
         <div class="py-5 has-text-centered is-size-1">
-            <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="play-button">Play</button>
+            <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet playButton" id="play-button">Play</button>
         </div>
       </div>
     </div>
 
     <!-- End Modal -->
-    <div class="modal" id="end-modal">
+    <div class="modal endModal" id="end-modal">
       <div class="modal-background"></div>
-      <div class="modal-content">
-        <h1 class="is-uppercase has-text-centered">Game Over</h1>
+      <div class="modal-content endModalContent">
+        <h1 class="is-uppercase has-text-centered" id="endTitle">Game Over</h1>
         <div class="columns">
           <div class="column">
-            <p class="has-text-centered is-size-3">Score:<span id="score"></span></p>
             <div class=" has-text-centered">
-              <img src="./assets/img/Hangman6.png" alt="man hanging from gallows" />
+              <img src="./assets/img/Hangman6.png" alt="man hanging from gallows" class="stickman_parts" />
             </div>
           </div> 
+          <div class="column scoreSheet">
+            <p class="has-text-centered is-size-3">
+              Score:
+              <p class="has-text-centered is-size-3" id="score"></p>
+            </p>
+          </div>
           <div class="column">
             <h2 class="has-text-centered"> Word List </h2> 
             <div id="past-word-list">
@@ -88,8 +93,8 @@
           </div>
         </div>
         <div class="py-5 has-text-centered is-size-1">
-            <button class="btn is-rounded is-size-5-mobile is-size-2-tablet" id="high-scores-btn" >High Scores</button>
-            <button class="btn is-rounded is-size-5-mobile is-size-2-tablet" id="play-again-btn" >Play Again</button>
+            <button class="btn is-rounded is-size-5-mobile is-size-2-tablet highScores" id="high-scores-btn" >High Scores</button>
+            <button class="btn is-rounded is-size-5-mobile is-size-2-tablet playButton" id="play-again-btn" >Play Again</button>
         </div>
       </div>
     </div>
