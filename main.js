@@ -11,33 +11,49 @@ var play = () => {
 
 playBtn.addEventListener("click", play);
 
+//set timer
+let timeElapsed = 0;
+let timer;
 
-const stickman = {
-    height: 360, 
-    width: 169, 
+//set word letter spaces variable
+let wordLetters;
+
+//scorecard. stores image source links, right answers, wrong answers, and the round time 
+const hangman = {
     imgSrc: [
-        'assets/img/StickmanFull.png',
-        'assets/img/Stickman1.png',
-        'assets/img/Stickman2.png',
-        'assets/img/Stickman3.png',
-        'assets/img/Stickman4.png',
-        'assets/img/Stickman5.png',
-        'assets/img/Stickman6.png'
+        './assets/img/Hangman_post.png',
+        './assets/img/Hangman1.png',
+        './assets/img/Hangman2.png',
+        './assets/img/Hangman3.png',
+        './assets/img/Hangman4.png',
+        './assets/img/Hangman5.png',
+        './assets/img/Hangman6.png'
     ],
-    imgPoint: 0
+    rightAnswers: 0,
+    wrongAnswers: 0,
+    roundTime: 0
 };
 
 const hangmanMove = () => {
-    stickman.imgPoint++;
-    if(stickman.imgPoint < stickman.imgSrc.length) {
-        $('.stickman_parts').css('background-image', `url("${stickman.imgSrc[stickman.imgPoint]}")`);
-        //bgx = Number.parseInt(bgx.substring(0, bgx.length - 2));
-        //$('.stickman_parts').css('background-position-x', (bgx + stickman.width) + 'px');
-        console.log($('.stickman_parts').css('background-image'));
-    } else {
-        console.log('END');
-    }
+    //swap out the image and makes sure the dimensions are set
+    $('.stickman_parts')
+        .attr('src', hangman.imgSrc[hangman.wrongAnswers])
 };
+
+//stolen from the internet, generates an array of the alphabet.
+const alphabet = Array.from(Array(26)).map((e, i) => i + 65).map((x) => String.fromCharCode(x));
+
+const insult = () => {
+    //insult
+    const insult = getInsult();
+    const insultDiv = document.getElementById("")
+    insultDiv.className = 'insultContainer';
+    insultDiv.setAttribute('style', 'display: flex; justify-content: center;');
+    insultDiv.textContent += insult;
+    $('#clue-insult').append(insultDiv);
+}
+
+
 
 
 $(document).ready(()=>{

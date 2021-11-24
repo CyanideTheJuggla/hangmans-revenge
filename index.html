@@ -31,9 +31,10 @@
             <img src="./assets/img/Hangman_post.png" alt="complete stickman" />
           </div>
           <div class="column is-6-mobile is-6-desktop" id="clue-insult">
-            <p class="has-text-centered p-2">
+            <p class="has-text-centered p-2" id="insult">
               "Good words are worth much, and cost little." <br>- George Herbert
             </p>
+            <div id="GIF"></div>
           </div>
           <div class="column is-12-mobile is-3-desktop has-text-centered" id="option-buttons">
             <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="clue" type="button">clue</button>
@@ -43,9 +44,8 @@
         </div>
       </div>
       <div class="container">
-        <div class="has-text-centered" id="letter-spaces"><span>
-          <p>_ _ _ _ _ _</p>
-        </span>
+        <div class="has-text-centered" id="letters-container">
+          <span id="letter-spaces"></span>
         </div>
         <div class="has-text-centered mx-6" id="letter-buttons">
           <button class="btn letter-button is-size-5-mobile is-size-3-tablet" id="A" type="button">A</button>
