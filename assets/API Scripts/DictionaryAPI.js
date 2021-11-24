@@ -89,7 +89,7 @@ var loadWords = function() {
 var showWordButtons = function() {
     //debugger;
     // removes the words from previous rounds
-    var pastWordsDivEl = document.getElementById("past-words-div");
+    var pastWordsDivEl = document.getElementById("past-word-list");
     if (pastWordsDivEl) {
         $(pastWordsDivEl).children().remove();
     }

@@ -55,6 +55,42 @@ const animatedScreenFade = () => {
     $('.gameWindow').animate({ opacity: 1 }, 250);
 }
 
+const calculateScore = () => {
+    hangman.timeElapsed = timeElapsed / 1000;
+    //score calculation
+    const score = ((Math.fround(
+            (hangman.rightAnswers - hangman.wrongAnswers) / hangman.timeElapsed)
+        ) * currentWord.score);
+    console.log('score', score);
+    //creating score elements
+    const right = document.createElement('p');
+    right.textContent = 'Right Answers: ' + hangman.rightAnswers;
+    const wrong = document.createElement('p');
+    wrong.textContent = 'Wrong Answers: ' + hangman.wrongAnswers
+    const time = document.createElement('p');
+    time.textContent = 'Time: ' + hangman.timeElapsed;
+    const wordScore = document.createElement('p');
+    wordScore.textContent = 'Word Score: ' + currentWord.score;
+    const calcContainer = document.createElement('span');
+    calcContainer.textContent = 'Calculation: ';
+    const calc = document.createElement('p');
+    calc.textContent = `((Right Answers [${hangman.rightAnswers}] - Wrong Answers [${hangman.wrongAnswers}]) ) * Word Score [${currentWord.score}] `;
+    const totalScore = `Total: ${score.toFixed(0)} points`
+    //attaching score elements
+    const scoreSheet = $('#score');
+    scoreSheet.html('');
+    scoreSheet.append(right);
+    scoreSheet.append(wrong);
+    scoreSheet.append(time);
+    scoreSheet.append(wordScore);
+    scoreSheet.append(document.createElement('hr'));
+    calcContainer.append(calc);
+    scoreSheet.append(calcContainer);
+    scoreSheet.append(document.createElement('hr'));
+    scoreSheet.append(totalScore);
+    scoreSheet.prepend('Score:')
+}
+
 const start = () => { 
     generateKeys(); //generate keys
     resetState(); //reset states
@@ -224,6 +260,7 @@ const hangmanMove = () => {
 
 const win = () => {
     wordList.push(currentWord);
+    calculateScore();
     saveWords();
     endGame();
     //TODO
@@ -233,6 +270,7 @@ const win = () => {
 
 const lose = () => {
     wordList.push(currentWord);
+    calculateScore();
     saveWords();
     endGame();
     //TODO
