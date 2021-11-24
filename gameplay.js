@@ -21,11 +21,10 @@ let wordLetters;
 //stolen from the internet, generates an array of the alphabet.
 const alphabet = Array.from(Array(26)).map((e, i) => i + 65).map((x) => String.fromCharCode(x));
 
-const testWord = "HIPPOPOTAMUS";
+//const testWord = "HIPPOPOTAMUS";
 
 const resetState = () => {
-    //remove clues/insults
-    $('#clue-insult div').remove();
+   
     //set hangman game stats to 0
     hangman.wrongAnswers = 0;
     hangman.rightAnswers = 0;
@@ -55,31 +54,18 @@ const timeKeep = () => {
 }
 
 const start = () => {
-    generateKeys();//generate keys
     resetState();//reset states
-    populateWord(testWord);//populate word blanks
+    generateKeys();//generate keys
+    populateWord();//populate word blanks
     animatedScreenFade();//animated start screen
     
     //keep track of elapsed time for scoring
     timer = setInterval(timeKeep, 100)
 }
 
-const end = () => {
-    //destroy click events for buttons
-    $('.letter-button').off('click');
-    const startButton = $('#play-modal');
-    //show and fade in start button
-    startButton.css('display', 'block');
-    startButton.animate({ opacity: 1.0 }, 750);
-    //fade out and remove game window
-    $('.gameWindow').animate({ opacity: 0 }, 250,  ()=>{
-        $('.gameWindow').css('display', 'none');
-    });
-}
-
  function populateWord(){
     //destroy anything in wordContainer
-    $('#letter-spaces span.cont').html('');
+    $('#letter-spaces').html('');
     //split word into array
     console.log('currentWord', currentWord);
     wordLetters = currentWord.word.split('');
@@ -89,16 +75,17 @@ const end = () => {
         //populate blanks for each letter within their own span element
         const blank_ = document.createElement('p');
         blank_.setAttribute('data-position', i);
+        blank_.setAttribute("class", "spaces");
         blank_.textContent = '_'
         //add blank_ to wordContainer
-        $('#letter-spaces span.cont').append(blank_);
+        $('#letter-spaces').append(blank_);
     };
 
 }
 
 const generateKeys = () =>{
-    $('#letter-buttons').html('');
-    let row;
+    var letterButtons = document.getElementById("letter-buttons");
+    
     for (let i = 0; i < alphabet.length; i++) {
         const inputValue = alphabet[i].toLowerCase();
         //create button element
@@ -110,13 +97,8 @@ const generateKeys = () =>{
         btn.className = 'btn letter-button is-size-5-mobile is-size-3-tablet';
         //add click event
         btn.onclick = letterKey;
-        if(i == 0 || i == 9 || i == 18) {
-            //3 rows of ~9 keys
-            row = document.createElement('div');
-            row.className = 'buttonContainer';
-            document.getElementById('letter-buttons').appendChild(row);
-        }
-        row.appendChild(btn);
+        
+        letterButtons.appendChild(btn);
     }
 }
 
@@ -182,6 +164,34 @@ const wrongAnswer = () => {
     
 }
 
+const insult = () => {
+    //insult
+    const insult = getInsult();
+    clueInsultDivEl.innerHTML = "";
+    const insultDiv = document.createElement("div");
+    insultDiv.setAttribute("class", "is-flex has-text-centered is-align-items-center")
+    const insultText = document.createElement("p");
+    insultText.textContent +=insult;
+    insultText.setAttribute("class", "m-2")
+    insultDiv.appendChild(insultText);
+    clueInsultDivEl.appendChild(insultDiv);
+    function closeInsultDiv(){
+        insultDiv.remove();
+        getGif();
+        }
+        
+    // close the div in 5 secs
+    setTimeout( closeInsultDiv, 5000 );
+   
+};
+
+const hangmanMove = () => {
+    //swap out the image until no more
+    var hangmanImg = document.getElementById("hangman");
+    hangmanImg.setAttribute("src", hangman.imgSrc[hangman.wrongAnswers]);
+    
+};
+
 const win = () => {
     //TODO
     console.log('WIN! \nDictionaryAPI.getDefinition(currentWord)');
@@ -195,23 +205,17 @@ const lose = () => {
     setTimeout(end, 1500);//just for now
 }
 
-const insult = () => {
-    //insult
-    $('.insultContainer').remove();
-    const insult = getInsult();
-    const insultDiv = document.createElement('div');
-    insultDiv.className = 'insultContainer';
-    insultDiv.setAttribute('style', 'display: flex; justify-content: center;');
-    insultDiv.textContent += insult;
-    $('#clue-insult').append(insultDiv);
+const end = () => {
+    //destroy click events for buttons
+    $('.letter-button').off('click');
+   //display endModal El 
+    endModalEl.attr("class", "is-active");
+    endModalEl.animate({ opacity: 1.0 }, 750);
+    //fade out and remove game window
+    $('.gameWindow').animate({ opacity: 0 }, 250,  ()=>{
+        $('.gameWindow').css('display', 'none');
+    });
 }
 
-const hangmanMove = () => {
-    //swap out the image and makes sure the dimensions are set
-    $('.stickman_parts')
-        .attr('src', hangman.imgSrc[hangman.wrongAnswers])
-        .css('height', '359px')
-        .css('width', '170px');
-};
 
 console.log('gameplay.js: OK!');

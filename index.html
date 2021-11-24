@@ -27,23 +27,23 @@
     <section class="container" id="main-page-content">
       <div class="container">
         <div class="columns is-gapless is-mobile is-vcentered is-multiline is-centered">
-          <div class="column is-6-mobile is-3-desktop has-text-centered" id="stickman">
-            <img src="./assets/img/Hangman_post.png" alt="complete stickman" />
+          <div class="column is-6-mobile is-3-desktop has-text-centered" id="hangman-container">
+            <img id="hangman" src="./assets/img/Hangman_post.png" alt="complete stickman" />
           </div>
           <div class="column is-6-mobile is-6-desktop is-flex is-justify-content-center" id="clue-insult">
-            <p class="has-text-centered p-2" id="word-quote">
+            <p class="has-text-centered p-2" id="quote-or-insult">
               "Good words are worth much, and cost little." <br>- George Herbert
             </p>
           </div>
           <div class="column is-12-mobile is-3-desktop has-text-centered" id="option-buttons">
             <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="clue" type="button">clue</button>
             <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="new-word" type="button">new word</button>
-            <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="view-high-scores-btn" type="button">High Scores</button>
+            <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="view-high-scores-btn" type="button">scores</button>
           </div>
         </div>
-        <div class="container letter-containment">
-          <div class="has-text-centered" id="letter-spaces">
-            <span class="cont"></span>
+        <div class="container">
+          <div class="has-text-centered" id="letters-container">
+            <span class="columns is-gapless has-text-centered is-flex is-justify-content-center" id="letter-spaces"></span>
           </div>
           <div class="has-text-centered mx-6" id="letter-buttons"></div>
         </div>
@@ -56,11 +56,11 @@
       <div class="modal-content">
         <h1 class="is-uppercase has-text-centered">Hangman's Revenge</h1>
         <p class="has-text-centered ">Think fast to save him from his fate, <br> or you'll be sorry...</p>
+        <div class="modal-btn is-flex is-justify-content-center has-text-centered is-size-1 mt-5">
+          <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="play-button">Play</button>
+        </div>
         <div class="has-text-centered">
           <img src="./assets/img/Hangman6.png" alt="man hanging from gallows" />
-        </div>
-        <div class="py-5 has-text-centered is-size-1">
-            <button class="btn btn-option is-rounded is-size-5-mobile is-size-2-tablet" id="play-button">Play</button>
         </div>
       </div>
     </div>
