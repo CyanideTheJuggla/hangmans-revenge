@@ -7,12 +7,14 @@ var playAgainBtn = document.getElementById("play-again-btn");
 
 var play = () => {
     //document.getElementById("play-modal").classList.remove("is-active");
+    endModalEl.classList.remove("is-active");
     console.log('fired');
     getRandomCategory();
 }
 
 var endGame = () => {
     endModalEl.classList.add("is-active");
+    showWordButtons();
 }
 
 var clueInsultDivEl = document.getElementById("clue-insult");
@@ -29,5 +31,6 @@ $('#clue').on("click", function() {
 $('#new-word').on("click", getRandomCategory);
 $('.letter-button').on('click', letterKey)
 $('#play-button').on('click', play);
+$('#play-again-btn').on('click', play);
 
 loadWords();

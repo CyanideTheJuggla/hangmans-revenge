@@ -66,6 +66,7 @@ const start = () => {
 
 const end = () => {
     wordList.push(currentWord);
+    saveWords();
     //destroy click events for buttons
     $('.letter-button').off('click');
     const startButton = $('#play-modal');
@@ -184,12 +185,18 @@ const wrongAnswer = () => {
 }
 
 const win = () => {
+    wordList.push(currentWord);
+    saveWords();
+    endGame();
     //TODO
     console.log('WIN! \nDictionaryAPI.getDefinition(currentWord)');
     setTimeout(end, 1500);//just for now
 }
 
 const lose = () => {
+    wordList.push(currentWord);
+    saveWords();
+    endGame();
     //TODO
     $('.letter-button').attr('disabled', true);
     console.log('You lost, you suck.\nDictionaryAPI.getDefinition(currentWord)');

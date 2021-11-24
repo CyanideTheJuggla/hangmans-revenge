@@ -87,8 +87,13 @@ var loadWords = function() {
 
 // Creates buttons for each word in wordList
 var showWordButtons = function() {
+    // removes the words from previous rounds
+    var pastWordsDivEl = document.getElementById("past-words-div");
+    if (pastWordsDivEl) {
+        pastWordsDivEl.remove();
+    }
     // creates the div and list elements to store the buttons
-    var pastWordsDivEl = document.createElement("div");
+    pastWordsDivEl = document.createElement("div");
     var pastWordsListEl = document.createElement("ul");
     pastWordsListEl.classList.add("past-word-list");
     // adds the list element to the div
