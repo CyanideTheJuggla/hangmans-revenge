@@ -123,6 +123,7 @@ var showDef = function(wordObject) {
         defListEl.appendChild(defText);
     }
     defTextDivEl.appendChild(defDivEl);
+   
 };
 
 // var getDefinition = function() {

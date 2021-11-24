@@ -21,10 +21,10 @@ let wordLetters;
 //stolen from the internet, generates an array of the alphabet.
 const alphabet = Array.from(Array(26)).map((e, i) => i + 65).map((x) => String.fromCharCode(x));
 
-//const testWord = "HIPPOPOTAMUS";
+const testWord = "HIPPOPOTAMUS";
 
 const resetState = () => {
-   
+    
     //set hangman game stats to 0
     hangman.wrongAnswers = 0;
     hangman.rightAnswers = 0;
@@ -32,20 +32,9 @@ const resetState = () => {
     clearInterval(timer);
     timer = undefined;
     timeElapsed = 0;
+    //show 1st hangman image --- empty gallows
     hangmanMove();
-}
-
-const animatedScreenFade = () => {
-    //fade start modal
-    const startButton = $('#play-modal');
-    startButton.animate({ opacity: 0.0 }, 750, () => {
-        //remove it so it doesn't cause issues
-        startButton.css('display', 'none');
-        startButton.removeClass('is-active');
-    });
-    //fade in and display game window
-    $('.gameWindow').css('display', 'block');
-    $('.gameWindow').animate({ opacity: 1 }, 250);
+    //enable all letter buttons
 }
 
 const timeKeep = () => {
@@ -53,17 +42,15 @@ const timeKeep = () => {
     $('.timeElapsed').html(new Date(0,0,0,0,0,0,timeElapsed).toLocaleTimeString().substring(3,8));
 }
 
-const start = () => {
-    resetState();//reset states
-    generateKeys();//generate keys
-    populateWord();//populate word blanks
-    animatedScreenFade();//animated start screen
-    
+const start = () => { 
+    resetState(); //reset states
+    populateWord(); //populate word blanks
+
     //keep track of elapsed time for scoring
-    timer = setInterval(timeKeep, 100)
+    timer = setInterval(timeKeep, 100);
 }
 
- function populateWord(){
+function populateWord(){
     //destroy anything in wordContainer
     $('#letter-spaces').html('');
     //split word into array
@@ -80,7 +67,6 @@ const start = () => {
         //add blank_ to wordContainer
         $('#letter-spaces').append(blank_);
     };
-
 }
 
 const generateKeys = () =>{
@@ -205,15 +191,6 @@ const lose = () => {
     setTimeout(end, 1500);//just for now
 }
 
-const end = () => {
-    //destroy click events for buttons
-    $('.letter-button').off('click');
-    //hide page content
-    var pageEl = document.getElementById("main-page-content");
-    pageEl.classList.add("hide");
-   //display endModal El 
-    endModalEl.setAttribute("class", "is-active");
-}
 
 
 console.log('gameplay.js: OK!');
